@@ -89,7 +89,7 @@ const Contact = () => {
       ref={sectionRef}
       id="contact"
       className={`
-        py-16 bg-gradient-to-br from-secondary/90 via-secondary to-primary/80
+        py-16 bg-gradient-to-b from-black via-gray-900 to-black
         transition-all duration-1000 ease-in-out
         ${isVisible 
           ? 'opacity-100 translate-y-0' 
@@ -100,7 +100,7 @@ const Contact = () => {
       <div className="container">
         <h2 
           className={`
-            text-3xl md:text-5xl font-bold text-center mb-12 text-dark
+            text-3xl md:text-5xl font-bold text-center mb-12 text-white
             transition-all duration-1000 ease-in-out delay-300
             ${isVisible 
               ? 'opacity-100 translate-y-0' 
@@ -123,7 +123,7 @@ const Contact = () => {
         >
           {/* Social Media Links */}
           <div className="md:w-1/3 space-y-6">
-            <h3 className="text-2xl font-semibold text-dark mb-4">
+            <h3 className="text-2xl font-semibold text-white mb-4">
               Social Media
             </h3>
             <div className="grid grid-cols-2 gap-4">
@@ -135,8 +135,8 @@ const Contact = () => {
                   rel="noopener noreferrer"
                   className="
                     flex items-center justify-center gap-2
-                    bg-white/70 p-3 rounded-lg 
-                    hover:bg-yellow/50 transition-all duration-300
+                      bg-gray-900 p-3 rounded-lg text-white 
+                    hover:bg-teal-400 transition-all duration-300
                     transform hover:scale-105 hover:shadow-md
                   "
                 >
@@ -148,12 +148,12 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="md:w-2/3 bg-white/70 p-8 rounded-lg shadow-md">
+          <div className="md:w-2/3 font- bg-gray-900 p-8 rounded-lg shadow-md">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label 
                   htmlFor="name" 
-                  className="block text-dark font-medium mb-2"
+                  className="block text-white font-medium mb-2"
                 >
                   Name
                 </label>
@@ -166,7 +166,7 @@ const Contact = () => {
                   required
                   className="
                     w-full px-4 py-2 rounded-lg border 
-                    border-secondary/50 focus:outline-none 
+                    border-dark focus:outline-none 
                     focus:ring-2 focus:ring-yellow
                   "
                   placeholder="Your Name"
@@ -176,7 +176,7 @@ const Contact = () => {
               <div>
                 <label 
                   htmlFor="email" 
-                  className="block text-dark font-medium mb-2"
+                  className="block text-white font-medium mb-2"
                 >
                   Email
                 </label>
@@ -199,7 +199,7 @@ const Contact = () => {
               <div>
                 <label 
                   htmlFor="message" 
-                  className="block text-dark font-medium mb-2"
+                  className="block text-white font-medium mb-2"
                 >
                   Message
                 </label>
@@ -222,8 +222,8 @@ const Contact = () => {
               <button
                 type="submit"
                 className="
-                  w-full bg-yellow text-dark py-3 rounded-lg 
-                  hover:bg-secondary transition-all duration-300
+                  w-full bg-teal-400 text-dark py-3 rounded-lg 
+                  hover:bg-white transition-all duration-300
                   flex items-center justify-center gap-2
                   font-semibold
                 "

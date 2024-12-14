@@ -28,23 +28,23 @@ const About = () => {
     };
   }, []);
 
-  return (
+  return (  
     <section 
       ref={sectionRef}
       id="about" 
       className={`
-        bg-gradient-to-br from-secondary/90 via-secondary to-primary/80 
-        text-dark py-16 transition-all duration-1000 ease-in-out
+       bg-gradient-to-b from-black via-gray-900 to-black
+      background-animate text-white py-16 transition-all duration-1000 ease-in-out
         ${isVisible 
           ? 'opacity-100 translate-y-0' 
           : 'opacity-0 translate-y-10'
         }
       `}
     >
-      <div className="container">
+      <div className="container max-w-6xl mx-auto px-4">
         <h2 
           className={`
-            text-3xl md:text-5xl font-bold text-center mb-8 text-dark
+            text-3xl md:text-5xl font-bold text-center mb-12 text-white
             transition-all duration-1000 ease-in-out delay-300
             ${isVisible 
               ? 'opacity-100 translate-y-0' 
@@ -72,7 +72,7 @@ const About = () => {
               alt="Profile"
               className={`
                 w-48 h-48 md:w-64 md:h-64 rounded-full object-cover 
-                shadow-lg border-4 border-yellow/50 transform transition 
+                shadow-2xl border-4 border-teal-500/50 transform transition 
                 hover:scale-105 hover:shadow-xl
                 ${isVisible 
                   ? 'opacity-100 scale-100' 
@@ -85,7 +85,7 @@ const About = () => {
           {/* Konten Teks */}
           <div 
             className={`
-              max-w-2xl space-y-4 bg-white/70 p-6 rounded-lg shadow-md
+              max-w-2xl space-y-6 bg-gray-800/60 p-8 rounded-2xl shadow-2xl
               transition-all duration-1000 ease-in-out delay-700
               ${isVisible 
                 ? 'opacity-100 translate-y-0' 
@@ -93,14 +93,14 @@ const About = () => {
               }
             `}
           >
-            <p className="text-lg leading-relaxed">
-              Hi, I'm <span className="font-bold text-dark">Defri Prasetyo</span>, 
-              a passionate <span className="text-yellow">Front-End Developer</span> 
+            <p className="text-lg leading-relaxed text-white/90">
+              Hi, I'm <span className="font-bold text-teal-400">Defri Prasetyo</span>, 
+              a passionate <span className="text-teal-500">Front-End Developer</span> 
               with a focus on building interactive and user-friendly web applications. 
               I love crafting clean and responsive designs using modern tools like 
               React.js and Tailwind CSS.
             </p>
-            <p className="text-lg leading-relaxed">
+            <p className="text-lg leading-relaxed text-white/90">
               Over the past years, I've honed my skills in creating efficient, 
               dynamic, and visually appealing user interfaces. I'm continuously 
               learning and expanding my knowledge to stay up-to-date with the 

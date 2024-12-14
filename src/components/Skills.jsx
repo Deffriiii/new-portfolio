@@ -4,13 +4,13 @@ import { SiJavascript, SiCodeigniter, SiTailwindcss } from "react-icons/si";
 
 const Skills = () => {
   const skills = [
-    { name: "HTML", icon: <FaHtml5 className="text-orange-600" /> },
-    { name: "CSS", icon: <FaCss3Alt className="text-blue-600" /> },
-    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-500" /> },
+    { name: "HTML", icon: <FaHtml5 className="text-orange-400" /> },
+    { name: "CSS", icon: <FaCss3Alt className="text-blue-400" /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" /> },
     { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
-    { name: "React.js", icon: <FaReact className="text-blue-500" /> },
-    { name: "PHP", icon: <FaPhp className="text-purple-700" /> },
-    { name: "CodeIgniter", icon: <SiCodeigniter className="text-red-500" /> },
+    { name: "React.js", icon: <FaReact className="text-cyan-400" /> },
+    { name: "PHP", icon: <FaPhp className="text-purple-400" /> },
+    { name: "CodeIgniter", icon: <SiCodeigniter className="text-red-400" /> },
   ];
 
   // Duplicate the skills array for seamless scrolling
@@ -19,10 +19,12 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="bg-gradient-to-b from-secondary to-white dark:bg-dark text-dark dark:text-light py-10 transition-colors duration-500 overflow-hidden"
+      className="bg-gradient-to-b from-black via-gray-900 to-black text-white py-16 overflow-hidden"
     >
-      <div className="container relative overflow-hidden">
-        <h2 className="text-3xl font-bold text-center mb-6">My Skills</h2>
+      <div className="container max-w-6xl mx-auto px-4 relative">
+        <h2 className="text-4xl font-bold text-center mb-12 text-white">
+          My Skills
+        </h2>
 
         {/* Scrolling Wrapper */}
         <div className="relative w-full overflow-hidden">
@@ -33,15 +35,50 @@ const Skills = () => {
             {repeatedSkills.map((skill, index) => (
               <div
                 key={index}
-                className="w-48 h-48 flex-shrink-0 p-4 bg-dark text-light rounded-lg shadow-md hover:scale-105 hover:shadow-lg transition-transform duration-300 flex flex-col items-center justify-center"
+                className="w-52 h-52 flex-shrink-0 p-6 
+                bg-gray-800/60 rounded-2xl shadow-2xl 
+                hover:scale-105 hover:shadow-xl 
+                transition-all duration-300 
+                flex flex-col items-center justify-center 
+                border border-gray-700/50 backdrop-blur-sm"
               >
-                <div className="text-5xl mb-4">{skill.icon}</div>
-                <h3 className="text-xl font-semibold text-center">{skill.name}</h3>
+                <div 
+                  className="text-6xl mb-4 
+                  transition-transform duration-300 
+                  group-hover:rotate-12"
+                >
+                  {skill.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-center text-white/90">
+                  {skill.name}
+                </h3>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Gradient Overlay */}
+        <div 
+          className="absolute top-0 left-0 right-0 h-full 
+          bg-gradient-to-r from-transparent via-transparent to-transparent 
+          pointer-events-none"
+        />
       </div>
+
+      <style jsx>{`
+        @keyframes scrollLeft {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scrollLeft {
+          animation: scrollLeft 20s linear infinite;
+        }
+      `}</style>
     </section>
   );
 };

@@ -13,11 +13,6 @@ export default {
           "100%": { transform: "translateX(-50%)" },
         },
       },
-      colors: {
-        secondary: "#74ccd3",
-        dark: "#131f1f",
-        light: "#F7F7F6",
-      },
     },
     container: {
       center: true,

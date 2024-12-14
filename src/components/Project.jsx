@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Updated projects data with multiple images
+// Updated projects data with multiple images (same as original code)
 const projectsData = [
   {
     id: 1,
     title: "Dynamic Gallery",
     description: "Galeri Dinamis, menampilkan galeri gambar responsif dengan pembaruan waktu nyata dan navigasi yang mulus.",
-    technologies: ["React", "css", "Unsplash API"],
+    technologies: ["React", "CSS", "Unsplash API"],
     images: [
       "/images/projects/dynamic-gallery/Dynamic-Gallery.png",
       "/images/projects/dynamic-gallery/Dynamic-Gallery-1.png",
@@ -91,13 +91,13 @@ const ProjectImageSlider = ({ project, isVisible }) => {
       </div>
 
       {/* Overlay with Links */}
-      <div className="absolute inset-0 bg-dark/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
         <div className="flex space-x-4">
           <a
             href={project.githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-dark text-light px-4 py-2 rounded-lg hover:bg-secondary"
+            className="bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition-colors"
           >
             GitHub
           </a>
@@ -105,7 +105,7 @@ const ProjectImageSlider = ({ project, isVisible }) => {
             href={project.liveLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-dark text-light px-4 py-2 rounded-lg hover:bg-secondary"
+            className="border border-gray-700 text-white px-4 py-2 rounded-lg hover:bg-teal-600 hover:border-teal-600 transition-colors"
           >
             Live Demo
           </a>
@@ -118,16 +118,16 @@ const ProjectImageSlider = ({ project, isVisible }) => {
           <button 
             onClick={prevImage}
             className="absolute top-1/2 left-2 -translate-y-1/2 
-            bg-dark/50 text-light p-2 rounded-full 
-            hover:bg-secondary transition-colors"
+            bg-black/50 text-white p-2 rounded-full 
+            hover:bg-teal-600 transition-colors"
           >
             <ChevronLeft size={20} />
           </button>
           <button 
             onClick={nextImage}
             className="absolute top-1/2 right-2 -translate-y-1/2 
-            bg-dark/50 text-light p-2 rounded-full 
-            hover:bg-secondary transition-colors"
+            bg-black/50 text-white p-2 rounded-full 
+            hover:bg-teal-600 transition-colors"
           >
             <ChevronRight size={20} />
           </button>
@@ -143,8 +143,8 @@ const ProjectImageSlider = ({ project, isVisible }) => {
             className={`
               h-2 w-2 rounded-full cursor-pointer
               ${index === currentImageIndex 
-                ? 'bg-secondary' 
-                : 'bg-dark/50'
+                ? 'bg-teal-500' 
+                : 'bg-white/50'
               }
             `}
           />
@@ -158,27 +158,28 @@ const ProjectCard = ({ project, isVisible }) => {
   return (
     <div
       className={`
-        bg-white/70 rounded-lg overflow-hidden shadow-lg 
+        bg-gray-800/70 rounded-lg overflow-hidden shadow-2xl 
         transform transition-all duration-500 ease-in-out
         ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}
         hover:scale-105 hover:shadow-xl
-        flex flex-col h-full  // Added to ensure consistent height
+        flex flex-col h-full
+        border border-gray-700/50
       `}
     >
       <ProjectImageSlider project={project} isVisible={isVisible} />
-      <div className="p-6 flex flex-col flex-grow"> {/* Added flex-grow */}
-        <h3 className="text-xl font-bold mb-2 text-dark">{project.title}</h3>
-        <p className="text-dark/70 mb-4 flex-grow">{project.description}</p>
-        <div className="flex flex-wrap gap-2 items-center justify-start"> {/* Added alignment */}
+      <div className="p-6 flex flex-col flex-grow"> 
+        <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
+        <p className="text-white/70 mb-4 flex-grow">{project.description}</p>
+        <div className="flex flex-wrap gap-2 items-center justify-start"> 
           {project.technologies.map((tech, index) => (
             <span
               key={index}
               className="
-                bg-secondary/20 text-dark 
-                px-1 py-1 rounded-full 
+                bg-teal-500/20 text-teal-300 
+                px-2 py-1 rounded-full 
                 text-xs 
-                inline-block  // Ensures consistent sizing
-                whitespace-nowrap  // Prevents wrapping
+                inline-block 
+                whitespace-nowrap
               "
             >
               {tech}
@@ -223,7 +224,7 @@ const Projects = () => {
       ref={sectionRef}
       id="projects"
       className={`
-        py-16 bg-gradient-to-b from-white to-secondary
+        py-16 bg-gradient-to-b from-black via-gray-900 to-black
         transition-all duration-1000 ease-in-out
         ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
       `}
@@ -231,7 +232,7 @@ const Projects = () => {
       <div className="container">
         <h2
           className={`
-            text-3xl md:text-5xl font-bold text-center mb-12 text-dark
+            text-4xl font-bold text-center mb-12 text-white
             transition-all duration-1000 ease-in-out delay-300
             ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
           `}
