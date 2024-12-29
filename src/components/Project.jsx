@@ -87,8 +87,8 @@ const projectsData = [
       "/images/projects/hotel-reservation/hotel-reservation-17.png",
       "/images/projects/hotel-reservation/hotel-reservation-18.png"
     ],
-    githubLink: "https://github.com/Deffriiii/movie-finder",
-    liveLink: "https://movie-finder-bice-six.vercel.app/",
+    githubLink: "https://github.com/Deffriiii/hotel-reservation",
+    liveLink: "#",
   },
 ];
 
