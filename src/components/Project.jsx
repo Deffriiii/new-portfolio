@@ -62,6 +62,34 @@ const projectsData = [
     githubLink: "https://github.com/Deffriiii/movie-finder",
     liveLink: "https://movie-finder-bice-six.vercel.app/",
   },
+  {
+    id: 5,
+    title: "Hotel Reservation",
+    description: "Proyek ini adalah sistem reservasi hotel berbasis web yang dibangun dengan Laravel untuk backend dan React.js untuk frontend, menggunakan Tailwind CSS untuk desain responsif. Sistem mendukung multi-login untuk admin dan user. Admin dapat mengelola data kamar dan reservasi, sementara user dapat mencari, dan memesan kamar. Proyek ini dirancang untuk memberikan pengalaman pengguna yang modern, cepat, dan efisien.",
+    technologies: ["Vite+React", "Tailwind Css", "Laravel 10"],
+    images: [
+      "/images/projects/hotel-reservation/hotel-reservation.png",
+      "/images/projects/hotel-reservation/hotel-reservation-2.png",
+      "/images/projects/hotel-reservation/hotel-reservation-3.png",
+      "/images/projects/hotel-reservation/hotel-reservation-4.png",
+      "/images/projects/hotel-reservation/hotel-reservation-5.png",
+      "/images/projects/hotel-reservation/hotel-reservation-6.png",
+      "/images/projects/hotel-reservation/hotel-reservation-7.png",
+      "/images/projects/hotel-reservation/hotel-reservation-8.png",
+      "/images/projects/hotel-reservation/hotel-reservation-9.png",
+      "/images/projects/hotel-reservation/hotel-reservation-10.png",
+      "/images/projects/hotel-reservation/hotel-reservation-11.png",
+      "/images/projects/hotel-reservation/hotel-reservation-12.png",
+      "/images/projects/hotel-reservation/hotel-reservation-13.png",
+      "/images/projects/hotel-reservation/hotel-reservation-14.png",
+      "/images/projects/hotel-reservation/hotel-reservation-15.png",
+      "/images/projects/hotel-reservation/hotel-reservation-16.png",
+      "/images/projects/hotel-reservation/hotel-reservation-17.png",
+      "/images/projects/hotel-reservation/hotel-reservation-18.png"
+    ],
+    githubLink: "https://github.com/Deffriiii/movie-finder",
+    liveLink: "https://movie-finder-bice-six.vercel.app/",
+  },
 ];
 
 const ProjectImageSlider = ({ project, isVisible }) => {
@@ -80,13 +108,13 @@ const ProjectImageSlider = ({ project, isVisible }) => {
   };
 
   return (
-    <div className="relative w-full h-48 overflow-hidden group">
+    <div className="relative w-full h-64 overflow-hidden group">
       {/* Slider Images */}
       <div className="w-full h-full transition-transform duration-500 ease-in-out">
         <img
           src={project.images[currentImageIndex]}
           alt={`${project.title} slide ${currentImageIndex + 1}`}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain bg-gray-900"
         />
       </div>
 
@@ -101,14 +129,16 @@ const ProjectImageSlider = ({ project, isVisible }) => {
           >
             GitHub
           </a>
-          <a
-            href={project.liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border border-gray-700 text-white px-4 py-2 rounded-lg hover:bg-teal-600 hover:border-teal-600 transition-colors"
-          >
-            Live Demo
-          </a>
+          {project.liveLink !== "#" && (
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-gray-700 text-white px-4 py-2 rounded-lg hover:bg-teal-600 hover:border-teal-600 transition-colors"
+            >
+              Live Demo
+            </a>
+          )}
         </div>
       </div>
 
@@ -119,7 +149,7 @@ const ProjectImageSlider = ({ project, isVisible }) => {
             onClick={prevImage}
             className="absolute top-1/2 left-2 -translate-y-1/2 
             bg-black/50 text-white p-2 rounded-full 
-            hover:bg-teal-600 transition-colors"
+            hover:bg-teal-600 transition-colors opacity-0 group-hover:opacity-100"
           >
             <ChevronLeft size={20} />
           </button>
@@ -127,7 +157,7 @@ const ProjectImageSlider = ({ project, isVisible }) => {
             onClick={nextImage}
             className="absolute top-1/2 right-2 -translate-y-1/2 
             bg-black/50 text-white p-2 rounded-full 
-            hover:bg-teal-600 transition-colors"
+            hover:bg-teal-600 transition-colors opacity-0 group-hover:opacity-100"
           >
             <ChevronRight size={20} />
           </button>
@@ -162,22 +192,22 @@ const ProjectCard = ({ project, isVisible }) => {
         transform transition-all duration-500 ease-in-out
         ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}
         hover:scale-105 hover:shadow-xl
-        flex flex-col h-full
+        flex flex-col
         border border-gray-700/50
       `}
     >
       <ProjectImageSlider project={project} isVisible={isVisible} />
       <div className="p-6 flex flex-col flex-grow"> 
         <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
-        <p className="text-white/70 mb-4 flex-grow">{project.description}</p>
-        <div className="flex flex-wrap gap-2 items-center justify-start"> 
+        <p className="text-gray-300 mb-4 flex-grow text-sm">{project.description}</p>
+        <div className="flex flex-wrap gap-2 mt-2"> 
           {project.technologies.map((tech, index) => (
             <span
               key={index}
               className="
                 bg-teal-500/20 text-teal-300 
                 px-2 py-1 rounded-full 
-                text-xs 
+                text-xs
                 inline-block 
                 whitespace-nowrap
               "
