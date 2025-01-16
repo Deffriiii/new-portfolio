@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { FaHtml5, FaCss3Alt, FaReact, FaPhp, FaLaravel } from "react-icons/fa";
-import { SiJavascript, SiCodeigniter, SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import { SiJavascript, SiCodeigniter, SiTailwindcss, SiNextdotjs, SiFigma } from "react-icons/si";
 
 const Skills = () => {
   const skillsRef = useRef(null);
@@ -15,6 +15,7 @@ const Skills = () => {
     { name: "PHP", icon: <FaPhp className="text-purple-400" /> },
     { name: "Laravel", icon: <FaLaravel className="text-red-500" /> },
     { name: "CodeIgniter", icon: <SiCodeigniter className="text-red-400" /> },
+    { name: "Figma", icon: <SiFigma className="text-pink-500" /> },
   ];
 
   useEffect(() => {
@@ -22,7 +23,7 @@ const Skills = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('show');
+            entry.target.classList.add('opacity-100', 'translate-y-0');
           }
         });
       },
@@ -43,13 +44,13 @@ const Skills = () => {
       ref={skillsRef}
       className="relative min-h-screen w-full bg-black overflow-hidden"
     >
-      {/* Background gradient that extends beyond the content */}
+      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
 
-      {/* Main content container */}
+      {/* Content */}
       <div className="relative z-10 w-full min-h-screen flex flex-col justify-center py-16">
         <div className="container max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white animate-fade-down">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white animate-[fadeDown_1s_ease_forwards]">
             My Skills
           </h2>
 
@@ -57,12 +58,18 @@ const Skills = () => {
             {skills.map((skill, index) => (
               <div
                 key={index}
-                className="skill-card opacity-0 translate-y-8 group relative overflow-hidden rounded-xl 
-                         bg-gray-800/60 border border-gray-700/50 p-4
-                         transform hover:scale-105 transition-all duration-300 ease-in-out
-                         hover:shadow-lg hover:shadow-blue-500/20"
+                className={`
+                  skill-card opacity-0 translate-y-8 
+                  group relative overflow-hidden rounded-xl 
+                  bg-gray-800/60 border border-gray-700/50 p-4
+                  transform hover:scale-105 transition-all duration-300 ease-in-out
+                  hover:shadow-lg hover:shadow-blue-500/20
+                `}
                 style={{
-                  transitionDelay: `${index * 100}ms`
+                  transitionDelay: `${index * 100}ms`,
+                  transitionProperty: 'all',
+                  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                  transitionDuration: '600ms'
                 }}
               >
                 <div className="flex flex-col items-center justify-center space-y-2">
@@ -76,10 +83,11 @@ const Skills = () => {
                   </h3>
                 </div>
 
-                <div className="absolute -inset-x-2/3 -inset-y-2/3 z-0 opacity-0 group-hover:opacity-50
-                              transition-all duration-300 ease-in-out
+                {/* Gradient background effect */}
+                <div className="absolute -inset-x-2/3 -inset-y-2/3 z-0 opacity-0 
+                              group-hover:opacity-50 transition-all duration-300 ease-in-out
                               bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500
-                              blur-2xl group-hover:animate-gradient">
+                              blur-2xl animate-[gradient_15s_ease_infinite]">
                 </div>
               </div>
             ))}
@@ -87,54 +95,29 @@ const Skills = () => {
         </div>
       </div>
 
-      <style>{`
-        @keyframes gradient {
-          0%, 100% { transform: translate(0%, 0%); }
-          25% { transform: translate(25%, 25%); }
-          50% { transform: translate(-25%, -25%); }
-          75% { transform: translate(-25%, 25%); }
-        }
-
-        .animate-gradient {
-          animation: gradient 15s ease infinite;
-        }
-
-        .animate-fade-down {
-          animation: fade-down 1s ease forwards;
-        }
-
-        @keyframes fade-down {
-          0% {
-            opacity: 0;
-            transform: translateY(-20px);
+      {/* Add Tailwind animations */}
+      <style>
+        {`
+          @keyframes gradient {
+            0%, 100% { transform: translate(0%, 0%); }
+            25% { transform: translate(25%, 25%); }
+            50% { transform: translate(-25%, -25%); }
+            75% { transform: translate(-25%, 25%); }
           }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
+          
+          @keyframes fadeDown {
+            0% {
+              opacity: 0;
+              transform: translateY(-20px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
           }
-        }
+        `}
+      </style>
 
-        .skill-card {
-          transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .skill-card.show {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        /* Ensure the background covers any potential gaps */
-        #skills::before {
-          content: '';
-          position: absolute;
-          bottom: -100px; /* Extra coverage for scroll momentum */
-          left: 0;
-          right: 0;
-          height: 100px;
-          background: black;
-          z-index: 1;
-        }
-      `}</style>
     </section>
   );
 };

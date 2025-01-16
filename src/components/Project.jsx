@@ -47,7 +47,7 @@ const ProjectImageSlider = memo(({ project }) => {
 
   return (
     <div 
-      className="relative w-full h-[400px] overflow-hidden group"
+      className="relative w-full h-[600px] overflow-hidden group"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -58,7 +58,7 @@ const ProjectImageSlider = memo(({ project }) => {
             src={src}
             alt={`${project.title} slide ${index + 1}`}
             className={`
-              absolute top-0 left-0 w-full h-full object-cover bg-gray-900
+              absolute top-0 left-0 w-full h-full object-contain bg-gray-900
               transition-all duration-500 ease-in-out
               ${index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}
               ${loadedImages.has(src) ? '' : 'invisible'}
@@ -121,7 +121,7 @@ const ProjectImageSlider = memo(({ project }) => {
 const DetailModal = ({ project, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-      <div className="bg-gradient-to-b from-gray-900 to-black rounded-xl max-w-5xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="bg-gradient-to-b from-gray-900 to-black rounded-xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm p-6 border-b border-gray-800 flex justify-between items-center z-20">
           <div className="flex items-center gap-3">
             <Code2 className="text-teal-500" size={28} />
@@ -235,20 +235,15 @@ const ProjectCard = memo(({ project, isVisible }) => {
           </p>
           
           <div className="mt-auto">
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.technologies.slice(0, 3).map((tech) => (
+            <div className="grid grid-cols-4 gap-2 mb-4">
+              {project.technologies.slice(0, 4).map((tech) => (
                 <span
                   key={tech}
-                  className="bg-teal-500/10 text-teal-400 px-3 py-1 rounded-lg text-xs"
+                  className="bg-teal-500/10 text-teal-400 px-2 py-1 rounded-lg text-xs text-center truncate"
                 >
                   {tech}
                 </span>
               ))}
-              {project.technologies.length > 3 && (
-                <span className="text-gray-400 text-xs flex items-center">
-                  +{project.technologies.length - 3} more
-                </span>
-              )}
             </div>
             
             <button
