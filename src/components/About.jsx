@@ -95,16 +95,17 @@ const About = () => {
           >
             <p className="text-lg leading-relaxed text-white/90">
               Hi, I'm <span className="font-bold text-teal-400">Defri Prasetyo</span>, 
-              a passionate <span className="text-teal-500">Front-End Developer</span> 
-              with a focus on building interactive and user-friendly web applications. 
-              I love crafting clean and responsive designs using modern tools like 
-              React.js and Tailwind CSS.
+              a passionate <span className="text-teal-500">Front-End Developer </span> 
+              with a strong interest in creating interactive, user-friendly, and visually
+               appealing web applications. I specialize in crafting clean and responsive designs 
+               using modern tools like React.js and Tailwind CSS. While my primary focus is
+                on front-end development, I’m also eager to explore opportunities in backend and 
+                full-stack development.
             </p>
             <p className="text-lg leading-relaxed text-white/90">
-              Over the past years, I've honed my skills in creating efficient, 
-              dynamic, and visually appealing user interfaces. I'm continuously 
-              learning and expanding my knowledge to stay up-to-date with the 
-              latest industry trends and technologies.
+            As a recent graduate in Software Engineering, I’ve built a solid foundation in web 
+            development and am committed to continuous learning. I stay updated with the latest
+            industry trends and technologies to deliver innovative and efficient solutions.
             </p>
           </div>
         </div>
