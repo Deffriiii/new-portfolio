@@ -3,7 +3,7 @@ export const projectsData = [
       id: 1,
       title: "ONEBOX CRM (Project Magang)",
       description: "OneBox CRM (Customer Relationship Management) adalah aplikasi berbasis ERP yang mempermudah perusahaan meningkatkan layanan pelanggan dari berbagai channel, mempercepat penanganan pengaduan, meningkatkan produktivitas kerja, dan mendukung penjualan. Dengan fitur seperti task management, sistem pengetahuan, dan data pelanggan, OneBox CRM menawarkan solusi operasional yang lebih cepat, mudah, dan hemat.",
-      technologies: ["PHP", "CSS", "Framewor"],
+      technologies: ["PHP", "CSS", "Framework Phalcon"],
       images: [
         "/images/projects/ERP-Onebox/ERP.jpg",
         "/images/projects/ERP-Onebox/ERP-1.jpg",
