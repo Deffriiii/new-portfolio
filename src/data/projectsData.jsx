@@ -29,6 +29,26 @@ export const projectsData = [
     },
     {
       id: 2,
+      title: "HRPAY",
+      description: "HRPay(Human Resource Payroll) adalah sistem berbasis web yang dirancang untuk mengelola data karyawan dan penggajian dalam satu platform. Dengan fitur multi-login (Admin & User), admin dapat mengatur data karyawan, mencatat gaji, dan mengelola pengguna, sementara karyawan dapat melihat gaji, mengakses slip gaji, dan mengedit data diri. HRPay memberikan solusi efisien untuk manajemen HR dan payroll dengan tampilan yang intuitif dan mudah digunakan.",
+      technologies: ["Laravel11", "TailwindCss", "Vite+react"],
+      images: [
+        "/images/projects/hrpay/hrpay.png",
+        "/images/projects/hrpay/hrpay-1.png",
+        "/images/projects/hrpay/hrpay-2.png",
+        "/images/projects/hrpay/hrpay-3.png",
+        "/images/projects/hrpay/hrpay-4.png",
+        "/images/projects/hrpay/hrpay-5.png",
+        "/images/projects/hrpay/hrpay-6.png",
+        "/images/projects/hrpay/hrpay-7.png",
+        "/images/projects/hrpay/hrpay-8.png",
+        "/images/projects/hrpay/hrpay-9.png",
+        "/images/projects/hrpay/hrpay-10.png",
+      ],
+      githubLink: "https://github.com/Deffriiii/hrpay",
+    },
+    {
+      id: 3,
       title: "Movie Finder",
       description: "Sebuah website responsif yang dirancang untuk memudahkan pengguna dalam mencari, menjelajahi, dan menemukan berbagai film favorit mereka dengan mudah.",
       technologies: ["Vite+React", "Tailwind Css", "TmdbApi"],
@@ -46,7 +66,7 @@ export const projectsData = [
       liveLink: "https://movie-finder-bice-six.vercel.app/",
     },
     {
-      id: 3,
+      id: 4,
       title: "Dynamic Gallery",
       description: "Galeri Dinamis, menampilkan galeri gambar responsif dengan pembaruan waktu nyata dan navigasi yang mulus.",
       technologies: ["React", "CSS", "Unsplash API"],
@@ -59,7 +79,7 @@ export const projectsData = [
       liveLink: "https://dynamic-gallery-mu.vercel.app/",
     },
     {
-      id: 4,
+      id: 5,
       title: "TO DO LIST",
       description: "Website to-do list adalah aplikasi web sederhana untuk mengelola tugas harian dengan fitur menambah, mengedit, menyelesaikan, dan menghapus tugas. Antarmukanya responsif, mudah digunakan, dan membantu pengguna lebih terorganisir.",
       technologies: ["Nextjs 15", "Tailwind","Mysql", "Laravel 11"],
@@ -75,7 +95,7 @@ export const projectsData = [
       liveLink: "#",
     },
     {
-      id: 5,
+      id: 6,
       title: "Anime Finder",
       description: "Platform penemuan anime yang menyediakan pencarian komprehensif dan informasi detail untuk menemukan anime favorit Anda.",
       technologies: ["React", "CSS", "Jikan API"],
@@ -88,7 +108,7 @@ export const projectsData = [
       liveLink: "https://anime-finder-zeta.vercel.app/",
     },
     {
-      id: 6,
+      id: 7,
       title: "E-Commerce Website",
       description: "Sebuah website e-commerce yang dibangun dengan CodeIgniter 4 dan Bootstrap, dilengkapi dengan fitur multi-login untuk admin dan pengguna.",
       technologies: ["Codeigniter", "Bootstrap", "PHP"],
@@ -103,7 +123,7 @@ export const projectsData = [
       liveLink: "#",
     },
     {
-      id: 7,
+      id: 8,
       title: "Hotel Reservation",
       description: "Proyek ini adalah sistem reservasi hotel berbasis web yang dibangun dengan Laravel untuk backend dan React.js untuk frontend, menggunakan Tailwind CSS untuk desain responsif. Sistem mendukung multi-login untuk admin dan user. Admin dapat mengelola data kamar dan reservasi, sementara user dapat mencari, dan memesan kamar. Proyek ini dirancang untuk memberikan pengalaman pengguna yang modern, cepat, dan efisien.",
       technologies: ["Vite+React", "Tailwind Css", "Laravel 10"],

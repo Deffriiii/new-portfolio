@@ -47,7 +47,7 @@ const ProjectImageSlider = memo(({ project }) => {
 
   return (
     <div 
-      className="relative w-full h-[600px] overflow-hidden group"
+      className="relative w-full aspect-video overflow-hidden rounded-xl group bg-gray-900"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -58,9 +58,9 @@ const ProjectImageSlider = memo(({ project }) => {
             src={src}
             alt={`${project.title} slide ${index + 1}`}
             className={`
-              absolute top-0 left-0 w-full h-full object-contain bg-gray-900
-              transition-all duration-500 ease-in-out
-              ${index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}
+              absolute top-0 left-0 w-full h-full object-contain
+              transition-all duration-700 ease-in-out
+              ${index === currentImageIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}
               ${loadedImages.has(src) ? '' : 'invisible'}
             `}
           />
@@ -77,13 +77,14 @@ const ProjectImageSlider = memo(({ project }) => {
             )}
             className="
               absolute top-1/2 left-4 -translate-y-1/2 
-              bg-black/50 text-white p-3 rounded-full
-              hover:bg-teal-600 transition-colors 
-              opacity-0 group-hover:opacity-100
+              bg-black/30 backdrop-blur-sm text-white p-2 rounded-full
+              hover:bg-black/50 transition-all duration-300
+              opacity-0 group-hover:opacity-100 transform -translate-x-4 
+              group-hover:translate-x-0
               z-30
             "
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} />
           </button>
           <button 
             onClick={() => handleNavigation(
@@ -91,25 +92,28 @@ const ProjectImageSlider = memo(({ project }) => {
             )}
             className="
               absolute top-1/2 right-4 -translate-y-1/2 
-              bg-black/50 text-white p-3 rounded-full
-              hover:bg-teal-600 transition-colors 
-              opacity-0 group-hover:opacity-100
+              bg-black/30 backdrop-blur-sm text-white p-2 rounded-full
+              hover:bg-black/50 transition-all duration-300
+              opacity-0 group-hover:opacity-100 transform translate-x-4 
+              group-hover:translate-x-0
               z-30
             "
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} />
           </button>
         </>
       )}
 
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
         {project.images.map((_, index) => (
-          <span
+          <button
             key={index}
             onClick={() => handleNavigation(index)}
             className={`
-              h-2 w-2 rounded-full cursor-pointer transition-colors
-              ${index === currentImageIndex ? 'bg-teal-500' : 'bg-white/50'}
+              h-1.5 transition-all duration-300 rounded-full
+              ${index === currentImageIndex 
+                ? 'w-6 bg-white' 
+                : 'w-1.5 bg-white/50 hover:bg-white/80'}
             `}
           />
         ))}
@@ -120,45 +124,50 @@ const ProjectImageSlider = memo(({ project }) => {
 
 const DetailModal = ({ project, onClose }) => {
   return (
-    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-      <div className="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto rounded-xl">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
+    <div 
+      className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      onClick={onClose}
+    >
+      <div 
+        className="relative w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-2xl animate-modal-in"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900 to-black opacity-95" />
         
-        {/* Content container with relative positioning */}
-        <div className="relative">
-          <div className="sticky top-0 bg-gray-900/95 backdrop-blur-sm p-6 border-b border-gray-800 flex justify-between items-center z-20">
-            <div className="flex items-center gap-3">
-              <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-            </div>
+        <div className="relative max-h-[90vh] overflow-y-auto">
+          <div className="sticky top-0 bg-black/50 backdrop-blur-md p-6 border-b border-white/10 flex justify-between items-center z-20">
+            <h3 className="text-3xl font-bold text-white">
+              {project.title}
+            </h3>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800 rounded-lg"
+              className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
             >
               <X size={24} />
             </button>
           </div>
           
-          <div className="p-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <Calendar className="text-teal-500" size={20} />
+          <div className="p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div className="space-y-8">
+                <div className="animate-fade-up" style={{ animationDelay: '0.2s' }}>
+                  <h4 className="text-xl font-semibold text-white mb-4 flex items-center gap-3">
+                    <Calendar className="text-teal-500" size={24} />
                     Overview
                   </h4>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed text-lg">
                     {project.description}
                   </p>
                 </div>
 
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">Tech Stack</h4>
-                  <div className="flex flex-wrap gap-2">
+                <div className="animate-fade-up" style={{ animationDelay: '0.4s' }}>
+                  <h4 className="text-xl font-semibold text-white mb-4">Tech Stack</h4>
+                  <div className="flex flex-wrap gap-3">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="bg-teal-500/10 text-teal-400 px-4 py-2 rounded-lg text-sm font-medium border border-teal-500/20"
+                        className="bg-teal-500/10 text-teal-400 px-6 py-2 rounded-lg text-sm font-medium border border-teal-500/20
+                        hover:bg-teal-500/20 transition-colors duration-300"
                       >
                         {tech}
                       </span>
@@ -166,13 +175,14 @@ const DetailModal = ({ project, onClose }) => {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '0.6s' }}>
                   {project.githubLink && (
                     <a
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors"
+                      className="flex items-center gap-3 px-8 py-3 bg-white/5 hover:bg-white/10 text-white rounded-lg transition-all duration-300
+                      hover:transform hover:-translate-y-1 border border-white/10"
                     >
                       <Github size={20} />
                       <span>View Code</span>
@@ -183,7 +193,8 @@ const DetailModal = ({ project, onClose }) => {
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-colors"
+                      className="flex items-center gap-3 px-8 py-3 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-all duration-300
+                      hover:transform hover:-translate-y-1"
                     >
                       <Globe size={20} />
                       <span>Live Demo</span>
@@ -192,71 +203,64 @@ const DetailModal = ({ project, onClose }) => {
                 </div>
               </div>
 
-              <div className="space-y-6">
-                <h4 className="text-lg font-semibold text-white mb-3">Gallery</h4>
-                <div className="rounded-xl overflow-hidden shadow-2xl">
-                  <ProjectImageSlider project={project} />
-                </div>
+              <div className="space-y-6 animate-fade-up" style={{ animationDelay: '0.8s' }}>
+                <h4 className="text-xl font-semibold text-white mb-4">Gallery</h4>
+                <ProjectImageSlider project={project} />
               </div>
             </div>
           </div>
         </div>
-
-        {/* Add animation styles */}
-        <style>
-          {`
-            @keyframes gradient {
-              0%, 100% { transform: translate(0%, 0%); }
-              25% { transform: translate(25%, 25%); }
-              50% { transform: translate(-25%, -25%); }
-              75% { transform: translate(-25%, 25%); }
-            }
-          `}
-        </style>
       </div>
     </div>
   );
 };
 
-const ProjectCard = memo(({ project, isVisible }) => {
+const ProjectCard = memo(({ project, isVisible, delay }) => {
   const [showDetail, setShowDetail] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <>
       <div
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         className={`
-          group bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl overflow-hidden 
-          transform transition-all duration-500 ease-in-out
-          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-          hover:shadow-2xl hover:shadow-teal-500/10
-          flex flex-col
+          group rounded-xl overflow-hidden 
+          transform transition-all duration-700 ease-out
+          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}
+          hover:shadow-2xl hover:shadow-teal-500/10 relative
           border border-gray-700/50
-          max-w-xs // Mengurangi max-width
         `}
+        style={{ 
+          animationDelay: `${delay}ms`,
+          transform: isHovered ? 'translateY(-8px)' : 'none'
+        }}
       >
-        <div className="relative h-40 overflow-hidden"> {/* Mengurangi height */}
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="relative h-48 overflow-hidden">
           <img
             src={project.images[0]}
             alt={project.title}
-            className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-cover transform transition-transform duration-700 scale-100 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
         </div>
         
-        <div className="p-3 flex flex-col flex-grow"> {/* Mengurangi padding */}
-          <h3 className="text-lg font-bold mb-2 text-white group-hover:text-teal-400 transition-colors">
+        <div className="relative p-6 bg-gradient-to-b from-gray-800 to-gray-900">
+          <h3 className="text-xl font-bold mb-3 text-white group-hover:text-teal-400 transition-colors duration-300">
             {project.title}
           </h3>
-          <p className="text-gray-400 mb-3 text-sm line-clamp-2">
+          <p className="text-gray-400 mb-4 line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">
             {project.description}
           </p>
           
-          <div className="mt-auto">
-            <div className="grid grid-cols-4 gap-1 mb-3"> {/* Mengurangi gap */}
+          <div>
+            <div className="flex flex-wrap gap-2 mb-4">
               {project.technologies.slice(0, 4).map((tech) => (
                 <span
                   key={tech}
-                  className="bg-teal-500/10 text-teal-400 px-1.5 py-0.5 rounded-lg text-xs text-center truncate"
+                  className="bg-teal-500/10 text-teal-400 px-3 py-1 rounded-lg text-xs
+                  transform transition-transform duration-300 hover:scale-105"
                 >
                   {tech}
                 </span>
@@ -265,9 +269,9 @@ const ProjectCard = memo(({ project, isVisible }) => {
             
             <button
               onClick={() => setShowDetail(true)}
-              className="w-full bg-white/10 text-white py-2 rounded-lg 
+              className="w-full bg-white/5 text-white py-3 rounded-lg
                 hover:bg-teal-500 transition-all duration-300
-                transform hover:translate-y-[-2px]"
+                group-hover:border-teal-500"
             >
               View Project
             </button>
@@ -315,25 +319,61 @@ const Projects = () => {
     <section
       ref={sectionRef}
       id="projects"
-      className="relative min-h-screen w-full overflow-hidden"
+      className="relative min-h-screen w-full py-20"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
 
-      <div className="relative z-10 py-16"> {/* Mengurangi padding vertical */}
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-10"> {/* Mengurangi margin bottom */}
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              My Projects
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto"> {/* Mengurangi gap dan menambah max-width container */}
-            {projectsData.map((project) => (
-              <ProjectCard key={project.id} project={project} isVisible={isVisible} />
-            ))}
-          </div>
+      <div className="relative container mx-auto px-4">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            My Projects
+          </h2>
+        </div>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {projectsData.map((project, index) => (
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              isVisible={isVisible}
+              delay={index * 200}
+            />
+          ))}
         </div>
       </div>
+
+      <style jsx global>{`
+        @keyframes modalIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-modal-in {
+          animation: modalIn 0.5s ease-out forwards;
+        }
+
+        .animate-fade-up {
+          opacity: 0;
+          animation: fadeUp 0.5s ease-out forwards;
+        }
+      `}</style>
     </section>
   );
 };
