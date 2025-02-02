@@ -42,28 +42,38 @@ const Skills = () => {
     <section
       id="skills"
       ref={skillsRef}
-      className="relative min-h-screen w-full bg-black overflow-hidden"
+      className="relative min-h-screen w-full overflow-hidden"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
+      {/* Enhanced background with multiple gradients */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-slate-950 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-r from-amber-900/10 via-transparent to-slate-800/10 opacity-60" />
+      
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-700/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-slate-700/5 rounded-full blur-3xl animate-pulse delay-1000" />
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full min-h-screen flex flex-col justify-center py-16">
+      <div className="relative z-10 w-full min-h-screen flex flex-col justify-center py-24">
         <div className="container max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white animate-[fadeDown_1s_ease_forwards]">
-            My Skills
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white animate-[fadeDown_1s_ease_forwards]">
+              My Skills
+            </h2>
+          </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {skills.map((skill, index) => (
               <div
                 key={index}
                 className={`
                   skill-card opacity-0 translate-y-8 
-                  group relative overflow-hidden rounded-xl 
-                  bg-gray-800/60 border border-gray-700/50 p-4
-                  transform hover:scale-105 transition-all duration-300 ease-in-out
-                  hover:shadow-lg hover:shadow-blue-500/20
+                  group relative overflow-hidden rounded-2xl 
+                  bg-gradient-to-br from-slate-900/90 via-black/90 to-slate-950/90
+                  backdrop-blur-sm border border-slate-800/50 p-6
+                  transform hover:scale-105 transition-all duration-500 ease-out
+                  hover:shadow-lg hover:shadow-amber-900/20
                 `}
                 style={{
                   transitionDelay: `${index * 100}ms`,
@@ -72,22 +82,26 @@ const Skills = () => {
                   transitionDuration: '600ms'
                 }}
               >
-                <div className="flex flex-col items-center justify-center space-y-2">
-                  <div className="text-4xl transform transition-all duration-500 ease-in-out
-                                group-hover:scale-110 group-hover:rotate-12">
+                {/* Hover effect background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-700/0 via-amber-700/5 to-amber-700/0 
+                  opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out" />
+                
+                <div className="relative flex flex-col items-center justify-center space-y-3">
+                  <div className="text-5xl transform transition-all duration-500 ease-out
+                    group-hover:scale-110 group-hover:rotate-12 group-hover:drop-shadow-lg">
                     {skill.icon}
                   </div>
-                  <h3 className="text-sm font-semibold text-white/90 transition-all duration-300
-                                group-hover:text-white">
+                  <h3 className="text-sm font-medium text-gray-300 transition-all duration-300
+                    group-hover:text-white group-hover:font-semibold">
                     {skill.name}
                   </h3>
                 </div>
 
-                {/* Gradient background effect */}
-                <div className="absolute -inset-x-2/3 -inset-y-2/3 z-0 opacity-0 
-                              group-hover:opacity-50 transition-all duration-300 ease-in-out
-                              bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500
-                              blur-2xl animate-[gradient_15s_ease_infinite]">
+                {/* Enhanced gradient glow effect */}
+                <div className="absolute -inset-x-full -inset-y-full z-0 opacity-0 
+                  group-hover:opacity-30 transition-all duration-700 ease-out
+                  bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700
+                  blur-3xl animate-[gradient_15s_ease_infinite]">
                 </div>
               </div>
             ))}
@@ -95,7 +109,7 @@ const Skills = () => {
         </div>
       </div>
 
-      {/* Add Tailwind animations */}
+      {/* Animations */}
       <style>
         {`
           @keyframes gradient {
@@ -117,7 +131,6 @@ const Skills = () => {
           }
         `}
       </style>
-
     </section>
   );
 };

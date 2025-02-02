@@ -4,6 +4,9 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        dark : "#0E0B16",
+      },
       animation: {
         scrollLeft: "scrollLeft 15s linear infinite",
       },

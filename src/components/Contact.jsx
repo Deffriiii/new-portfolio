@@ -136,7 +136,7 @@ const Contact = () => {
                   className="
                     flex items-center justify-center gap-2
                       bg-gray-900 p-3 rounded-lg text-white 
-                    hover:bg-teal-400 transition-all duration-300
+                    hover:bg-amber-400 transition-all duration-300
                     transform hover:scale-105 hover:shadow-md
                   "
                 >
@@ -222,7 +222,7 @@ const Contact = () => {
               <button
                 type="submit"
                 className="
-                  w-full bg-teal-400 text-dark py-3 rounded-lg 
+                  w-full bg-amber-400 text-dark py-3 rounded-lg 
                   hover:bg-white transition-all duration-300
                   flex items-center justify-center gap-2
                   font-semibold

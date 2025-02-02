@@ -152,7 +152,7 @@ const DetailModal = ({ project, onClose }) => {
               <div className="space-y-8">
                 <div className="animate-fade-up" style={{ animationDelay: '0.2s' }}>
                   <h4 className="text-xl font-semibold text-white mb-4 flex items-center gap-3">
-                    <Calendar className="text-teal-500" size={24} />
+                    <Calendar className="text-amber-500" size={24} />
                     Overview
                   </h4>
                   <p className="text-gray-300 leading-relaxed text-lg">
@@ -166,8 +166,8 @@ const DetailModal = ({ project, onClose }) => {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="bg-teal-500/10 text-teal-400 px-6 py-2 rounded-lg text-sm font-medium border border-teal-500/20
-                        hover:bg-teal-500/20 transition-colors duration-300"
+                        className="bg-amber-500/10 text-amber-400 px-6 py-2 rounded-lg text-sm font-medium border border-amber-500/20
+                        hover:bg-amber-500/20 transition-colors duration-300"
                       >
                         {tech}
                       </span>
@@ -193,7 +193,7 @@ const DetailModal = ({ project, onClose }) => {
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 px-8 py-3 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-all duration-300
+                      className="flex items-center gap-3 px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all duration-300
                       hover:transform hover:-translate-y-1"
                     >
                       <Globe size={20} />
@@ -228,7 +228,7 @@ const ProjectCard = memo(({ project, isVisible, delay }) => {
           group rounded-xl overflow-hidden 
           transform transition-all duration-700 ease-out
           ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}
-          hover:shadow-2xl hover:shadow-teal-500/10 relative
+          hover:shadow-2xl hover:shadow-amber-500/10 relative
           border border-gray-700/50
         `}
         style={{ 
@@ -236,7 +236,7 @@ const ProjectCard = memo(({ project, isVisible, delay }) => {
           transform: isHovered ? 'translateY(-8px)' : 'none'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="relative h-48 overflow-hidden">
           <img
             src={project.images[0]}
@@ -247,7 +247,7 @@ const ProjectCard = memo(({ project, isVisible, delay }) => {
         </div>
         
         <div className="relative p-6 bg-gradient-to-b from-gray-800 to-gray-900">
-          <h3 className="text-xl font-bold mb-3 text-white group-hover:text-teal-400 transition-colors duration-300">
+          <h3 className="text-xl font-bold mb-3 text-white group-hover:text-amber-400 transition-colors duration-300">
             {project.title}
           </h3>
           <p className="text-gray-400 mb-4 line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">
@@ -259,7 +259,7 @@ const ProjectCard = memo(({ project, isVisible, delay }) => {
               {project.technologies.slice(0, 4).map((tech) => (
                 <span
                   key={tech}
-                  className="bg-teal-500/10 text-teal-400 px-3 py-1 rounded-lg text-xs
+                  className="bg-amber-500/10 text-amber-400 px-3 py-1 rounded-lg text-xs
                   transform transition-transform duration-300 hover:scale-105"
                 >
                   {tech}
@@ -270,8 +270,8 @@ const ProjectCard = memo(({ project, isVisible, delay }) => {
             <button
               onClick={() => setShowDetail(true)}
               className="w-full bg-white/5 text-white py-3 rounded-lg
-                hover:bg-teal-500 transition-all duration-300
-                group-hover:border-teal-500"
+                hover:bg-amber-500 transition-all duration-300
+                group-hover:border-amber-500"
             >
               View Project
             </button>
