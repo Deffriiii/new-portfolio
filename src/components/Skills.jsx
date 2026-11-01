@@ -45,8 +45,8 @@ const Skills = () => {
       className="relative min-h-screen w-full overflow-hidden"
     >
       {/* Enhanced background with multiple gradients */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-slate-950 to-black" />
-      <div className="absolute inset-0 bg-gradient-to-r from-amber-900/10 via-transparent to-slate-800/10 opacity-60" />
+      <div className="absolute inset-0 bg-linear-to-b from-black via-slate-950 to-black" />
+      <div className="absolute inset-0 bg-linear-to-r from-amber-900/10 via-transparent to-slate-800/10 opacity-60" />
       
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -70,8 +70,8 @@ const Skills = () => {
                 className={`
                   skill-card opacity-0 translate-y-8 
                   group relative overflow-hidden rounded-2xl 
-                  bg-gradient-to-br from-slate-900/90 via-black/90 to-slate-950/90
-                  backdrop-blur-sm border border-slate-800/50 p-6
+                  bg-linear-to-br from-slate-900/90 via-black/90 to-slate-950/90
+                  backdrop-blur-xs border border-slate-800/50 p-6
                   transform hover:scale-105 transition-all duration-500 ease-out
                   hover:shadow-lg hover:shadow-amber-900/20
                 `}
@@ -83,7 +83,7 @@ const Skills = () => {
                 }}
               >
                 {/* Hover effect background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-700/0 via-amber-700/5 to-amber-700/0 
+                <div className="absolute inset-0 bg-linear-to-r from-amber-700/0 via-amber-700/5 to-amber-700/0 
                   opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out" />
                 
                 <div className="relative flex flex-col items-center justify-center space-y-3">
@@ -100,7 +100,7 @@ const Skills = () => {
                 {/* Enhanced gradient glow effect */}
                 <div className="absolute -inset-x-full -inset-y-full z-0 opacity-0 
                   group-hover:opacity-30 transition-all duration-700 ease-out
-                  bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700
+                  bg-linear-to-r from-amber-500 via-amber-600 to-amber-700
                   blur-3xl animate-[gradient_15s_ease_infinite]">
                 </div>
               </div>

@@ -1,8 +1,77 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-/* index.css atau styles.css */
-html {
-    @apply scroll-smooth;
+@config '../tailwind.config.js';
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
   }
+}
+
+/* Warna yang berubah sesuai mode */
+:root {
+  --c-ink: #1a1a1a;
+  --c-panel: #2f2f2f;
+  --c-fg: #ffffff;
+  --c-muted: #d4d4d4;
+  --c-line: rgb(255 255 255 / 0.15);
+  --c-divider: rgb(255 255 255 / 0.15);
+  --nav-shadow: none;
+}
+
+:root.light {
+  --c-ink: #eceff3;
+  --c-panel: #f8f9fb;
+  --c-fg: #0e1a22;
+  --c-muted: #5b6670;
+  --c-line: rgb(14 26 34 / 0.12);
+  --c-divider: #1f2d38;
+  --nav-shadow: 0 12px 40px rgb(14 26 34 / 0.07);
+}
+
+@theme inline {
+  --color-ink: var(--c-ink);
+  --color-panel: var(--c-panel);
+  --color-fg: var(--c-fg);
+  --color-muted: var(--c-muted);
+  --color-line: var(--c-line);
+  --color-divider: var(--c-divider);
+}
+
+/* Warna tetap dan animasi */
+@theme {
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #e04e00;
+  --color-brand-light: #ff7a00;
+  --color-sun: #ffb000;
+  --animate-blink: blink 1s steps(1) infinite;
+  --animate-float: float 3s ease-in-out infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply bg-ink font-sans text-fg antialiased transition-colors duration-300;
+}

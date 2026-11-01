@@ -1,105 +1,103 @@
-import React, { useState, useEffect } from "react";
+import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { ArrowUpRight } from "lucide-react";
+import useTypewriter from "../hooks/useTypewriter";
+import Reveal from "./Reveal";
+
+const roles = ["Front-End Developer", "Web Developer"];
+
+const socials = [
+  { label: "GitHub", href: "#", icon: <FaGithub /> },
+  { label: "LinkedIn", href: "#", icon: <FaLinkedinIn /> },
+  { label: "Instagram", href: "#", icon: <FaInstagram /> },
+];
 
 const Hero = () => {
-  const [currentText, setCurrentText] = useState("");
-  const [index, setIndex] = useState(0);
-
-  const texts = ["A Front-End Developer", "Web Developer"];
-
-  useEffect(() => {
-    let charIndex = 0;
-    const typeInterval = setInterval(() => {
-      setCurrentText((prev) => texts[index].slice(0, charIndex + 1));
-      charIndex++;
-
-      if (charIndex === texts[index].length) {
-        clearInterval(typeInterval);
-        setTimeout(() => {
-          setIndex((prev) => (prev + 1) % texts.length);
-        }, 50);
-      }
-    }, 100);
-
-    return () => clearInterval(typeInterval);
-  }, [index]);
+  const role = useTypewriter(roles);
 
   return (
-    <section
-      id="home"
-      className="min-h-screen relative overflow-hidden flex items-center justify-center text-center pt-16 
-      bg-gradient-to-b from-black via-slate-950 to-black
-      background-animate text-gray-100"
-    >
-      {/* Enhanced gradient background elements */}
-      <div className="absolute inset-0 w-full h-full">
-        <div className="absolute top-0 left-0 w-full h-full 
-          bg-gradient-to-br from-amber-900/10 via-transparent to-slate-800/20 opacity-60"></div>
-        <div className="absolute top-20 left-20 w-96 h-96 
-          bg-gradient-to-r from-amber-700/5 to-slate-800/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 
-          bg-gradient-to-l from-slate-800/10 to-amber-900/5 rounded-full blur-3xl animate-pulse delay-700"></div>
-      </div>
-
-      <div className="relative max-w-3xl mx-4 space-y-8 
-        bg-gradient-to-br from-slate-900/70 via-black/70 to-slate-950/70 
-        p-12 rounded-3xl shadow-2xl 
-        backdrop-blur-sm border border-slate-800/50 
-        transform hover:scale-[1.02] transition-all duration-300">
-        <div className="space-y-4">
-         
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-100 tracking-tight">
-            Halo, I am <br className="md:hidden" />
-            <span className="bg-gradient-to-r from-amber-600 to-amber-700 bg-clip-text text-transparent relative">
-              Defri Prasetyo
-              <span className="absolute bottom-0 left-0 w-full h-0.5 
-                bg-gradient-to-r from-amber-600 to-amber-700 opacity-30"></span>
-            </span>
+    <section id="home">
+      <div className="mx-auto grid max-w-[1296px] items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-0 lg:py-0 xl:px-0">
+        {/* Kiri: teks */}
+        <Reveal
+          direction="left"
+          className="flex flex-col gap-7 lg:min-h-[720px] lg:justify-center lg:border-r lg:border-divider lg:pr-12"
+        >
+          <h1 className="text-5xl font-bold leading-tight sm:text-6xl">
+            Halo <span aria-hidden="true">👋</span> I&apos;m Defri Prasetyo
           </h1>
-        </div>
 
-        <p className="text-xl md:text-2xl text-gray-300 font-light">
-          <span className="text-amber-600">{currentText}</span>
-          <span className="animate-pulse">|</span>
-        </p>
+          <div className="w-fit rounded-sm border border-fg px-3 py-2 text-3xl font-semibold sm:text-4xl">
+            {role}
+            <span className="ml-1 inline-block h-8 w-0.5 translate-y-1 animate-blink bg-fg" />
+          </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-          <a
-            href="#projects"
-            className="group bg-gradient-to-r from-amber-700 to-amber-600 
-            text-gray-100 px-8 py-3.5 rounded-xl 
-            hover:from-amber-600 hover:to-amber-700 transition-all duration-300 
-            transform hover:-translate-y-1 hover:shadow-xl 
-            shadow-lg shadow-amber-900/20 font-medium"
-          >
-            <span className="flex items-center justify-center gap-2">
-              View Projects
-              <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" 
-                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                  d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </span>
-          </a>
-          <a
-            href="#contact"
-            className="group border-2 border-amber-700 text-amber-600 px-8 py-3.5 rounded-xl 
-            hover:bg-gradient-to-r hover:from-amber-700 hover:to-amber-600 
-            hover:text-gray-100 hover:border-transparent
-            transition-all duration-300 transform hover:-translate-y-1 
-            hover:shadow-xl shadow-lg shadow-amber-900/10"
-          >
-            <span className="flex items-center justify-center gap-2">
-              Contact Me
-              <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" 
-                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                  d="M20 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                  d="M12 15l3-3m0 0l-3-3m3 3H4" />
-              </svg>
-            </span>
-          </a>
-        </div>
+          <p className="max-w-lg text-lg leading-8 text-muted">
+            [Tulis 2 sampai 3 kalimat tentang dirimu di sini.]
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4">
+            {/* Tombol miring */}
+            <a href="#projects" className="group flex items-stretch font-semibold">
+              <span
+                className="bg-linear-to-r from-brand to-brand-light py-4 pl-8 pr-10 text-white"
+                style={{ clipPath: "polygon(0 0, 100% 0, 85% 100%, 0 100%)" }}
+              >
+                View Projects
+              </span>
+              <span
+                className="-ml-4 flex items-center bg-sun px-6 text-black transition group-hover:bg-fg group-hover:text-ink"
+                style={{ clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0 100%)" }}
+              >
+                <ArrowUpRight size={18} className="ml-2" />
+              </span>
+            </a>
+
+            {/* Ikon sosial */}
+            <div className="flex gap-2">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.label}
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-panel transition hover:bg-brand hover:text-white"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Kanan: foto dalam kartu kuning */}
+        <Reveal
+          direction="right"
+          delay={200}
+          className="flex justify-center lg:justify-end lg:pl-12"
+        >
+          <div className="relative mt-16 w-full max-w-[548px]">
+            <div className="relative aspect-[548/555] overflow-hidden rounded-3xl bg-sun">
+              <img
+                src="/profile.jpg"
+                alt="Foto Defri Prasetyo"
+                className="absolute inset-0 h-full w-full object-cover object-top"
+              />
+              {/* Garis diagonal di pojok kanan atas */}
+              <div className="absolute -right-10 top-8 h-5 w-48 rotate-45 bg-ink" />
+            </div>
+
+            {/* Bintang dekorasi (melayang) */}
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="absolute -left-2 -top-14 h-24 w-24 text-brand-light motion-safe:animate-float"
+            >
+              <path
+                fill="currentColor"
+                d="M12 0c.8 6.5 4.5 10.2 12 12-7.5 1.8-11.2 5.5-12 12-.8-6.5-4.5-10.2-12-12C7.5 10.2 11.2 6.5 12 0z"
+              />
+            </svg>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

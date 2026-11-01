@@ -34,7 +34,7 @@ const About = () => {
       id="about" 
       className={`
         min-h-screen relative overflow-hidden
-        bg-gradient-to-b from-black via-slate-950 to-black
+        bg-linear-to-b from-black via-slate-950 to-black
         background-animate text-white py-24 transition-all duration-1000 ease-in-out
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
       `}
@@ -42,9 +42,9 @@ const About = () => {
       {/* Decorative background elements */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute top-0 left-0 w-full h-full 
-          bg-gradient-to-br from-amber-900/5 via-transparent to-slate-800/10 opacity-60"></div>
+          bg-linear-to-br from-amber-900/5 via-transparent to-slate-800/10 opacity-60"></div>
         <div className="absolute top-20 right-20 w-96 h-96 
-          bg-gradient-to-r from-amber-700/5 to-slate-800/5 rounded-full blur-3xl animate-pulse"></div>
+          bg-linear-to-r from-amber-700/5 to-slate-800/5 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
       <div className="container max-w-6xl mx-auto px-4 relative">
@@ -69,8 +69,8 @@ const About = () => {
           `}
         >
           {/* Profile Image with enhanced styling */}
-          <div className="flex-shrink-0 relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-amber-600 to-amber-700 
+          <div className="shrink-0 relative group">
+            <div className="absolute -inset-1 bg-linear-to-r from-amber-600 to-amber-700 
               rounded-full opacity-40 group-hover:opacity-60 blur transition duration-500"></div>
             <img
               src="/images/profile.jpg"
@@ -88,8 +88,8 @@ const About = () => {
           <div 
             className={`
               max-w-2xl space-y-6 
-              bg-gradient-to-br from-slate-900/90 via-black/90 to-slate-950/90
-              p-8 rounded-2xl shadow-2xl backdrop-blur-sm
+              bg-linear-to-br from-slate-900/90 via-black/90 to-slate-950/90
+              p-8 rounded-2xl shadow-2xl backdrop-blur-xs
               border border-slate-800/50
               transition-all duration-1000 ease-in-out delay-700
               hover:shadow-amber-900/5
@@ -97,7 +97,7 @@ const About = () => {
             `}
           >
             <p className="text-lg leading-relaxed text-gray-300">
-              Hi, I'm <span className="font-bold bg-gradient-to-r from-amber-500 to-amber-600 
+              Hi, I'm <span className="font-bold bg-linear-to-r from-amber-500 to-amber-600 
               bg-clip-text text-transparent">Defri Prasetyo</span>, 
               a passionate <span className="text-amber-500">Front-End Developer </span> 
               with a strong interest in creating interactive, user-friendly, and visually
@@ -107,7 +107,7 @@ const About = () => {
               full-stack development.
             </p>
 
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-amber-700/20 to-transparent my-6"></div>
+            <div className="w-full h-px bg-linear-to-r from-transparent via-amber-700/20 to-transparent my-6"></div>
 
             <p className="text-lg leading-relaxed text-gray-300">
               As a recent graduate in Software Engineering, I've built a solid foundation in web 

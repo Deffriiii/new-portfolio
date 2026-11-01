@@ -77,7 +77,7 @@ const ProjectImageSlider = memo(({ project }) => {
             )}
             className="
               absolute top-1/2 left-4 -translate-y-1/2 
-              bg-black/30 backdrop-blur-sm text-white p-2 rounded-full
+              bg-black/30 backdrop-blur-xs text-white p-2 rounded-full
               hover:bg-black/50 transition-all duration-300
               opacity-0 group-hover:opacity-100 transform -translate-x-4 
               group-hover:translate-x-0
@@ -92,7 +92,7 @@ const ProjectImageSlider = memo(({ project }) => {
             )}
             className="
               absolute top-1/2 right-4 -translate-y-1/2 
-              bg-black/30 backdrop-blur-sm text-white p-2 rounded-full
+              bg-black/30 backdrop-blur-xs text-white p-2 rounded-full
               hover:bg-black/50 transition-all duration-300
               opacity-0 group-hover:opacity-100 transform translate-x-4 
               group-hover:translate-x-0
@@ -125,14 +125,14 @@ const ProjectImageSlider = memo(({ project }) => {
 const DetailModal = ({ project, onClose }) => {
   return (
     <div 
-      className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black/90 backdrop-blur-xs flex items-center justify-center z-50 p-4"
       onClick={onClose}
     >
       <div 
         className="relative w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-2xl animate-modal-in"
         onClick={e => e.stopPropagation()}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900 to-black opacity-95" />
+        <div className="absolute inset-0 bg-linear-to-b from-gray-900 via-gray-900 to-black opacity-95" />
         
         <div className="relative max-h-[90vh] overflow-y-auto">
           <div className="sticky top-0 bg-black/50 backdrop-blur-md p-6 border-b border-white/10 flex justify-between items-center z-20">
@@ -236,17 +236,17 @@ const ProjectCard = memo(({ project, isVisible, delay }) => {
           transform: isHovered ? 'translateY(-8px)' : 'none'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-linear-to-br from-amber-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="relative h-48 overflow-hidden">
           <img
             src={project.images[0]}
             alt={project.title}
             className="w-full h-full object-cover transform transition-transform duration-700 scale-100 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-gray-900 via-transparent to-transparent" />
         </div>
         
-        <div className="relative p-6 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div className="relative p-6 bg-linear-to-b from-gray-800 to-gray-900">
           <h3 className="text-xl font-bold mb-3 text-white group-hover:text-amber-400 transition-colors duration-300">
             {project.title}
           </h3>
@@ -321,7 +321,7 @@ const Projects = () => {
       id="projects"
       className="relative min-h-screen w-full py-20"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
+      <div className="absolute inset-0 bg-linear-to-b from-black via-gray-900 to-black" />
 
       <div className="relative container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">

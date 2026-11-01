@@ -89,7 +89,7 @@ const Contact = () => {
       ref={sectionRef}
       id="contact"
       className={`
-        py-16 bg-gradient-to-b from-black via-gray-900 to-black
+        py-16 bg-linear-to-b from-black via-gray-900 to-black
         transition-all duration-1000 ease-in-out
         ${isVisible 
           ? 'opacity-100 translate-y-0' 
@@ -166,7 +166,7 @@ const Contact = () => {
                   required
                   className="
                     w-full px-4 py-2 rounded-lg border 
-                    border-dark focus:outline-none 
+                    border-dark focus:outline-hidden 
                     focus:ring-2 focus:ring-yellow
                   "
                   placeholder="Your Name"
@@ -189,7 +189,7 @@ const Contact = () => {
                   required
                   className="
                     w-full px-4 py-2 rounded-lg border 
-                    border-secondary/50 focus:outline-none 
+                    border-secondary/50 focus:outline-hidden 
                     focus:ring-2 focus:ring-yellow
                   "
                   placeholder="Your Email"
@@ -212,7 +212,7 @@ const Contact = () => {
                   rows="4"
                   className="
                     w-full px-4 py-2 rounded-lg border 
-                    border-secondary/50 focus:outline-none 
+                    border-secondary/50 focus:outline-hidden 
                     focus:ring-2 focus:ring-yellow
                   "
                   placeholder="Your Message"
